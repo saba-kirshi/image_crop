@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.imagecrop.FirstFragment"
+        android:label="Pick Image"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_firstFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_showImageFragment"
+            app:destination="@id/showImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.imagecrop.CameraFragment"
+        android:label="Capture Image"
+        tools:layout="@layout/fragment_camera">
+        <action
+            android:id="@+id/action_cameraFragment_to_showImageFragment"
+            app:destination="@id/showImageFragment" />
+        <argument
+            android:name="image_url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/showImageFragment"
+        android:name="com.example.imagecrop.ShowImageFragment"
+        android:label="fragment_show_image"
+        tools:layout="@layout/fragment_show_image" >
+        <argument
+            android:name="image_url"
+            app:argType="string" />
+    </fragment>
+</navigation>
